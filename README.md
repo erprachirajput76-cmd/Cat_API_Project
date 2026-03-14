@@ -1,6 +1,6 @@
 # Feline Grace – Warm Organic Cat Explorer
 
-**Copyright (c) 2025 erprachirajput76-cmd.** See [LICENSE](LICENSE) for terms.
+**Copyright (c) 2026 Prachi Rajput.** See [LICENSE](LICENSE) for terms.
 
 A production-grade Angular application that consumes the Cat API to deliver a **premium editorial-style feline discovery platform**. Built with the latest stable Angular (19+), standalone components, signals, and a warm organic design system.
 
@@ -137,4 +137,4 @@ All responses are typed (e.g. `CatImage`, `Breed`, `Vote`).
 
 ## License
 
-MIT License. Copyright (c) 2025 erprachirajput76-cmd. See [LICENSE](LICENSE) for full terms.
+MIT License. Copyright (c) 2026 Prachi Rajput. See [LICENSE](LICENSE) for full terms.

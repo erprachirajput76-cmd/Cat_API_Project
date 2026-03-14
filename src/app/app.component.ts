@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2025 erprachirajput76-cmd. See LICENSE for terms.
+ * Copyright (c) 2026 Prachi Rajput. See LICENSE for terms.
  */
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
