@@ -4,6 +4,8 @@
 
 A production-grade Angular application that consumes the Cat API to deliver a **premium editorial-style feline discovery platform**. Built with the latest stable Angular (19+), standalone components, signals, and a warm organic design system.
 
+**Live Demo:** [https://erprachirajput76-cmd.github.io/Cat_API_Project/explorer](https://erprachirajput76-cmd.github.io/Cat_API_Project/explorer)
+
 ---
 
 ## Project overview
