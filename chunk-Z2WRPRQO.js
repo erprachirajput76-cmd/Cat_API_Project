@@ -1,0 +1,1 @@
+var e={DEFAULT:"Discovering cats\u2026",LOADING_IMAGES:"Loading images\u2026",LOADING_BREED:"Loading breed\u2026",LOADING_BREEDS:"Loading breeds\u2026",DISCOVERING_CATS:"Discovering cats\u2026"},s={SUBTEXT:"Feline Grace"};export{e as a,s as b};
