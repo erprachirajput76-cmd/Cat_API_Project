@@ -1,6 +1,6 @@
 /**
  * Feline Grace – Cat API Explorer
- * Copyright (c) 2025 erprachirajput76-cmd. See LICENSE for terms.
+ * Copyright (c) 2026 Prachi Rajput. See LICENSE for terms.
  */
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';

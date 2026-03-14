@@ -1,9 +1,9 @@
 {
   "name": "feline-grace",
   "version": "0.0.0",
-  "author": "erprachirajput76-cmd",
+  "author": "Prachi Rajput",
   "license": "MIT",
-  "copyright": "Copyright (c) 2025 erprachirajput76-cmd",
+  "copyright": "Copyright (c) 2026 Prachi Rajput",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
