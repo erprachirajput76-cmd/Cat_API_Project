@@ -1,0 +1,61 @@
+<article class="cat-card" (mouseenter)="hover.set(true)" (mouseleave)="hover.set(false)">
+  <div class="card-image-wrap">
+    <app-organic-image
+      [src]="cat().url"
+      [alt]="altText()"
+      [size]="280"
+    />
+    <div class="card-actions" [class.visible]="hover()">
+      <button
+        mat-icon-button
+        type="button"
+        class="action-btn"
+        [class.liked]="getVote() === 1"
+        (click)="onLike.emit(cat().id)"
+        [attr.aria-label]="'Like ' + altText()"
+        [attr.aria-pressed]="getVote() === 1"
+      >
+        <mat-icon>{{ getVote() === 1 ? 'thumb_up' : 'thumb_up_off_alt' }}</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        type="button"
+        class="action-btn"
+        [class.disliked]="getVote() === 0"
+        (click)="onDislike.emit(cat().id)"
+        [attr.aria-label]="'Dislike ' + altText()"
+        [attr.aria-pressed]="getVote() === 0"
+      >
+        <mat-icon>{{ getVote() === 0 ? 'thumb_down' : 'thumb_down_off_alt' }}</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        type="button"
+        class="action-btn"
+        [class.faved]="isFavorite()"
+        [attr.aria-pressed]="isFavorite()"
+        [attr.aria-label]="(isFavorite() ? 'Remove from' : 'Add to') + ' favorites'"
+        (click)="toggleFav()"
+      >
+        <mat-icon>{{ isFavorite() ? 'favorite' : 'favorite_border' }}</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    @if (displayBreedName()) {
+      <h3 class="card-breed">{{ displayBreedName() }}</h3>
+    }
+    @if (temperament().length) {
+      <mat-chip-set>
+        @for (t of temperament(); track t) {
+          <mat-chip>{{ t }}</mat-chip>
+        }
+      </mat-chip-set>
+    }
+    @if (hasBreedDetail()) {
+      <button mat-flat-button color="primary" class="view-details" (click)="onViewDetails.emit(cat())">
+        View details
+      </button>
+    }
+  </div>
+</article>

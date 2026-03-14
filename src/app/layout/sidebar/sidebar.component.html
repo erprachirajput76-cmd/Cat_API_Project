@@ -1,0 +1,20 @@
+<aside class="sidebar">
+  <div class="sidebar-theme">
+    <mat-slide-toggle
+      [ngModel]="darkMode()"
+      (ngModelChange)="toggleDark($event)"
+      class="theme-toggle"
+    >
+      Dark mode
+    </mat-slide-toggle>
+  </div>
+  <nav class="sidebar-nav">
+    <a [routerLink]="routes.HOME" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-item">
+      Home
+    </a>
+    <a [routerLink]="routes.EXPLORE" routerLinkActive="active" class="nav-item">Explorer</a>
+    <a [routerLink]="routes.BREEDS" routerLinkActive="active" class="nav-item">Breeds</a>
+    <a [routerLink]="routes.FAVORITES" routerLinkActive="active" class="nav-item">Favorites</a>
+    <a [routerLink]="routes.INSIGHTS" routerLinkActive="active" class="nav-item">Insights</a>
+  </nav>
+</aside>

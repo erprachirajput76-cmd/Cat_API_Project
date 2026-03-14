@@ -1,0 +1,88 @@
+@if (loading()) {
+  <app-loader [message]="loaderMessage" />
+} @else if (breed()) {
+  <button mat-button [routerLink]="routes.BREEDS"><mat-icon>arrow_back</mat-icon> Breeds</button>
+  <app-page-header [title]="breed()!.name" [subtitle]="breed()!.origin ?? ''" />
+
+  <div class="breed-hero">
+    @if (mainImage()) {
+      <div class="organic-shape hero-img">
+        <img [src]="mainImage()" [alt]="breed()!.name" referrerPolicy="no-referrer" />
+      </div>
+    }
+    <div class="breed-meta">
+      @if (breed()!.life_span) {
+        <p><strong>Life span</strong> {{ breed()!.life_span }}</p>
+      }
+      @if (temperamentList().length) {
+        <mat-chip-set>
+          @for (t of temperamentList(); track t) {
+            <mat-chip>{{ t }}</mat-chip>
+          }
+        </mat-chip-set>
+      }
+      @if (breed()!.description) {
+        <p class="description">{{ breed()!.description }}</p>
+      }
+    </div>
+  </div>
+
+  <mat-expansion-panel class="traits-panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Characteristics</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="traits-grid">
+      @if (breed()!.adaptability != null) {
+        <div class="trait"><span>Adaptability</span><span>{{ breed()!.adaptability }}/5</span></div>
+      }
+      @if (breed()!.affection_level != null) {
+        <div class="trait"><span>Affection</span><span>{{ breed()!.affection_level }}/5</span></div>
+      }
+      @if (breed()!.energy_level != null) {
+        <div class="trait"><span>Energy</span><span>{{ breed()!.energy_level }}/5</span></div>
+      }
+      @if (breed()!.grooming != null) {
+        <div class="trait"><span>Grooming</span><span>{{ breed()!.grooming }}/5</span></div>
+      }
+      @if (breed()!.intelligence != null) {
+        <div class="trait"><span>Intelligence</span><span>{{ breed()!.intelligence }}/5</span></div>
+      }
+    </div>
+  </mat-expansion-panel>
+
+  <section class="carousel-section">
+    <h2>Gallery</h2>
+    <div class="carousel">
+      <button mat-icon-button class="carousel-btn prev" (click)="prev()" aria-label="Previous">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <div class="carousel-track">
+        @for (img of carouselImages(); track img.id; let i = $index) {
+          <div
+            class="carousel-slide"
+            [class.active]="currentIndex() === i"
+            [style.transform]="'translateX(' + (i - currentIndex()) * 100 + '%)'"
+          >
+            <img [src]="img.url" [alt]="breed()!.name + ' ' + (i + 1)" referrerPolicy="no-referrer" />
+          </div>
+        }
+      </div>
+      <button mat-icon-button class="carousel-btn next" (click)="next()" aria-label="Next">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+    <div class="carousel-dots">
+      @for (img of carouselImages(); track img.id; let i = $index) {
+        <button
+          type="button"
+          class="dot"
+          [class.active]="currentIndex() === i"
+          (click)="currentIndex.set(i)"
+          [attr.aria-label]="'Slide ' + (i + 1)"
+        ></button>
+      }
+    </div>
+  </section>
+} @else {
+  <p class="error">Breed not found.</p>
+}

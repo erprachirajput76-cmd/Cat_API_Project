@@ -1,0 +1,10 @@
+<div class="organic-shape" [style.width.px]="size()" [style.height.px]="size()">
+  <img
+    [src]="src()"
+    [alt]="alt()"
+    loading="lazy"
+    referrerPolicy="no-referrer"
+    (load)="onImageLoad()"
+    [class.loaded]="loaded()"
+  />
+</div>

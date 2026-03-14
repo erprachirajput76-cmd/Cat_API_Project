@@ -1,0 +1,162 @@
+@use '@angular/material' as mat;
+
+// Warm Organic Aesthetic – Feline Grace
+:root {
+  --bg-cream: #f0f0e8;
+  --primary: #5a5a40;
+  --primary-muted: #5a5a40cc;
+  --accent: #a3b18a;
+  --coral: #ff9b85;
+  --surface: #fdfdfb;
+  --sage-light: #a3b18a40;
+}
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg-cream);
+  font-family: 'Inter', sans-serif;
+  color: var(--primary);
+}
+
+body.mat-typography {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.organic-shape {
+  border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%;
+  overflow: hidden;
+}
+
+.mat-mdc-raised-button.mat-primary {
+  border-radius: 9999px !important;
+}
+
+.mat-mdc-form-field {
+  .mdc-text-field {
+    border-radius: 1rem !important;
+  }
+}
+
+/* Theme toggle: warm coral to match project (replaces default blue) */
+.sidebar .theme-toggle.mat-mdc-slide-toggle {
+  --mdc-switch-selected-track-color: #ff9b85 !important;
+  --mdc-switch-selected-hover-track-color: #e88a75 !important;
+  --mdc-switch-selected-pressed-track-color: #e88a75 !important;
+  --mdc-switch-selected-focus-track-color: #ff9b85 !important;
+  --mdc-switch-selected-handle-color: #fff !important;
+  --mdc-switch-selected-hover-handle-color: #fff !important;
+  --mdc-switch-selected-pressed-handle-color: #fff !important;
+  --mdc-switch-selected-focus-handle-color: #fff !important;
+}
+.sidebar .theme-toggle .mat-mdc-slide-toggle-label {
+  color: var(--primary, #5a5a40) !important;
+}
+html.dark-mode .sidebar .theme-toggle .mat-mdc-slide-toggle-label {
+  color: #e8e6e0 !important;
+}
+
+/* Dark mode – warm charcoal (no olive tint); applied globally so it always takes effect */
+html.dark-mode {
+  --bg-cream: #1e1d1b;
+  --primary: #e8e6e0;
+  --primary-muted: #b8b6b0;
+  --surface: #282624;
+  --accent: #a3b18a;
+  --coral: #ff9b85;
+}
+
+/* Force dark background and text so changes are visible even if variables don’t cascade */
+html.dark-mode,
+html.dark-mode body {
+  background: #1e1d1b !important;
+  color: #e8e6e0 !important;
+}
+
+html.dark-mode .app-header {
+  background: #1e1d1b !important;
+  border-bottom-color: rgba(232, 230, 224, 0.15) !important;
+}
+
+html.dark-mode .app-header .logo {
+  color: #e8e6e0 !important;
+}
+
+html.dark-mode .app-header .tagline {
+  color: #b8b6b0 !important;
+}
+
+html.dark-mode .main-content {
+  background: #1e1d1b !important;
+}
+
+/* Dark mode: form fields – clear, readable text */
+html.dark-mode .mat-mdc-form-field .mdc-text-field__input,
+html.dark-mode .mat-mdc-form-field .mat-mdc-select-value,
+html.dark-mode .mat-mdc-form-field .mat-mdc-floating-label {
+  color: #e8e6e0 !important;
+}
+html.dark-mode .mat-mdc-form-field .mdc-text-field__input::placeholder {
+  color: #b8b6b0 !important;
+  opacity: 1;
+}
+html.dark-mode .mat-mdc-form-field .mdc-notched-outline__leading,
+html.dark-mode .mat-mdc-form-field .mdc-notched-outline__notch,
+html.dark-mode .mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: rgba(232, 230, 224, 0.3) !important;
+}
+html.dark-mode .mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading,
+html.dark-mode .mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__notch,
+html.dark-mode .mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-color: rgba(232, 230, 224, 0.3) !important;
+}
+html.dark-mode .mat-mdc-form-field.mat-focused .mdc-notched-outline .mdc-notched-outline__leading,
+html.dark-mode .mat-mdc-form-field.mat-focused .mdc-notched-outline .mdc-notched-outline__notch,
+html.dark-mode .mat-mdc-form-field.mat-focused .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-color: rgba(255, 155, 133, 0.8) !important;
+}
+html.dark-mode .mat-mdc-form-field .mat-icon {
+  color: #b8b6b0 !important;
+}
+html.dark-mode .mat-mdc-form-field .mat-mdc-select-arrow {
+  color: #b8b6b0 !important;
+}
+html.dark-mode .mat-mdc-form-field .mdc-text-field {
+  --mdc-outlined-text-field-outline-color: rgba(232, 230, 224, 0.3);
+  --mdc-outlined-text-field-focus-outline-color: rgba(255, 155, 133, 0.8);
+  --mdc-outlined-text-field-hover-outline-color: rgba(232, 230, 224, 0.5);
+  --mdc-outlined-text-field-input-text-color: #e8e6e0;
+  --mdc-outlined-text-field-label-text-color: rgba(232, 230, 224, 0.7);
+  --mdc-outlined-text-field-caret-color: #e8e6e0;
+}
+html.dark-mode .mat-mdc-form-field .mdc-line-ripple::before {
+  border-bottom-color: rgba(232, 230, 224, 0.3) !important;
+}
+/* Dropdown panel (select options) in dark mode */
+html.dark-mode .mat-mdc-select-panel {
+  background: #282624 !important;
+}
+html.dark-mode .mat-mdc-option {
+  color: #e8e6e0 !important;
+}
+html.dark-mode .mat-mdc-option:hover,
+html.dark-mode .mat-mdc-option.mat-mdc-option-active {
+  background: rgba(255, 155, 133, 0.15) !important;
+}

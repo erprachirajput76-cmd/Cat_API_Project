@@ -1,0 +1,78 @@
+<!doctype html>
+<!--
+  Feline Grace – Cat API Explorer
+  Copyright (c) 2025 erprachirajput76-cmd. See LICENSE for terms.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Feline Grace</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    .initial-loader {
+      position: fixed;
+      inset: 0;
+      background: #f0f0e8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      font-family: Inter, sans-serif;
+    }
+    .initial-loader-blob {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1.5rem;
+    }
+    .initial-loader .blob-circle {
+      position: absolute;
+      border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%;
+      animation: initial-blob 2.5s ease-in-out infinite;
+    }
+    .initial-loader .blob-a { inset: 0; background: #ff9b85; opacity: 0.9; }
+    .initial-loader .blob-b { inset: 8px; background: #a3b18a; opacity: 0.7; animation-delay: -0.8s; }
+    .initial-loader .blob-c { inset: 16px; background: #5a5a40; opacity: 0.5; animation-delay: -1.6s; }
+    @keyframes initial-blob {
+      0%, 100% { border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%; transform: translate(0,0) scale(1); }
+      25% { border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; transform: translate(2px,-4px) scale(1.02); }
+      50% { border-radius: 70% 30% 50% 50% / 30% 70% 50% 50%; transform: translate(-2px,2px) scale(0.98); }
+      75% { border-radius: 30% 70% 60% 40% / 70% 40% 30% 60%; transform: translate(3px,2px) scale(1.01); }
+    }
+    .initial-loader-dots { display: flex; gap: 8px; margin-bottom: 1rem; }
+    .initial-loader-dots span {
+      width: 10px; height: 10px; border-radius: 50%; background: #ff9b85;
+      animation: initial-dot 1.2s ease-in-out infinite both;
+    }
+    .initial-loader-dots span:nth-child(1) { animation-delay: 0s; }
+    .initial-loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .initial-loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes initial-dot {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.6; }
+      40% { transform: scale(1.2); opacity: 1; }
+    }
+    .initial-loader-text { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: #5a5a40; margin: 0 0 0.25rem 0; }
+    .initial-loader-brand { font-size: 0.75rem; letter-spacing: 0.15em; color: rgba(90,90,64,0.7); margin: 0; }
+  </style>
+</head>
+<body class="mat-typography">
+  <div id="app-loader" class="initial-loader" aria-live="polite" aria-label="Loading">
+    <div class="initial-loader-blob">
+      <span class="blob-circle blob-a"></span>
+      <span class="blob-circle blob-b"></span>
+      <span class="blob-circle blob-c"></span>
+    </div>
+    <div class="initial-loader-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <p class="initial-loader-text">Discovering cats…</p>
+    <p class="initial-loader-brand">Feline Grace</p>
+  </div>
+  <app-root></app-root>
+</body>
+</html>

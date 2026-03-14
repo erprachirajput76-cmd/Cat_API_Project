@@ -1,0 +1,52 @@
+<app-page-header [title]="pageHeader.title" [subtitle]="pageHeader.subtitle" />
+<div class="dashboard">
+  <div class="stat-card olive">
+    <h3>Most liked cat</h3>
+    @if (mostLikedImageId(); as id) {
+      @if (mostLikedImageUrl(); as url) {
+        <div class="stat-image">
+          <img [src]="url" alt="Most liked cat" referrerPolicy="no-referrer" />
+        </div>
+      }
+      <p>By vote count</p>
+    } @else {
+      <p class="muted">Like cats in Explorer to see the top pick here.</p>
+    }
+  </div>
+  <div class="stat-card sage">
+    <h3>Cats disliked</h3>
+    <p class="stat-number">{{ dislikeCount() }}</p>
+    <p class="stat-hint">Cats you've given a thumbs down</p>
+  </div>
+  <div class="stat-card coral">
+    <h3>Cats explored</h3>
+    <p class="stat-number">{{ exploredCount() }}</p>
+  </div>
+  <div class="stat-card cream">
+    <h3>Total favorites</h3>
+    <p class="stat-number">{{ favoriteCount() }}</p>
+  </div>
+</div>
+<div class="chart-placeholder">
+  <div class="chart-header">
+    <h3>Activity overview</h3>
+    <mat-icon
+      class="chart-info-icon"
+      matTooltip="Bars show your relative activity: cats you've liked or disliked (Explored), cats you've saved (Favorites), and breed pages you've opened (Breeds). Taller bar = more activity in that category."
+      aria-label="Chart description"
+    >info</mat-icon>
+  </div>
+  <p class="chart-description">
+    Relative activity across your session: <strong>Explored</strong> (cats you voted on), <strong>Favorites</strong> (saved cats), and <strong>Breeds</strong> (breed detail pages viewed). Bar height reflects relative level of activity in each category.
+  </p>
+  <div class="bar-chart">
+    <div class="bar" [style.height.%]="exploredPercent()" [title]="chartLabels.EXPLORED"></div>
+    <div class="bar" [style.height.%]="favoritesPercent()" [title]="chartLabels.FAVORITES"></div>
+    <div class="bar" [style.height.%]="breedsPercent()" [title]="chartLabels.BREEDS_VIEWED"></div>
+  </div>
+  <div class="bar-labels">
+    <span>{{ chartLabels.EXPLORED }}</span>
+    <span>{{ chartLabels.FAVORITES }}</span>
+    <span>{{ chartLabels.BREEDS_VIEWED }}</span>
+  </div>
+</div>

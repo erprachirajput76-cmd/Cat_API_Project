@@ -1,0 +1,88 @@
+<section class="hero">
+  <div class="hero-left">
+    <h1 class="hero-title">
+      Russian blue have <em class="primary">secret plans</em> lick the other cats
+    </h1>
+    <p class="hero-text">
+      Behind every whisker lies a world of mystery. From the ancient temples of Egypt to the sunlit windowsills
+      of today, cats have woven themselves into the fabric of human life. Discover their temperaments, their
+      origins, and the subtle ways they shape our days. This is your invitation to explore the grace and
+      complexity of the feline world.
+    </p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-wrap">
+      @if (loading()) {
+        <app-loader [message]="loaderMessage" />
+      }
+      @if (heroImage(); as src) {
+        <app-organic-image
+          [src]="src"
+          [alt]="heroImageAlt"
+          [size]="heroImageSize"
+          [class.images-loading]="loading()"
+          (imageLoaded)="onImageLoaded()"
+        />
+      }
+    </div>
+  </div>
+</section>
+
+<section class="partners">
+  <h2 class="section-title">Trusted by cat lovers everywhere</h2>
+  <div class="partner-logos">
+    <span class="partner-logo" aria-label="Royal Canin">Royal Canin</span>
+    <span class="partner-logo" aria-label="Purina">Purina</span>
+    <span class="partner-logo" aria-label="Edgard Cooper">Edgard Cooper</span>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-left">
+    <div class="about-image-wrap rotated">
+      @if (aboutImage(); as src) {
+        <app-organic-image
+          [src]="src"
+          [alt]="aboutImageAlt"
+          [size]="aboutImageSize"
+          [class.images-loading]="loading()"
+          (imageLoaded)="onImageLoaded()"
+        />
+      }
+      <button type="button" class="play-btn" aria-label="Play video" (click)="openVideo()">
+        <span class="play-icon"></span>
+      </button>
+    </div>
+  </div>
+  <div class="about-right">
+    <h2 class="about-title">Man running from cops stops to pet cats</h2>
+    <p>
+      In a moment that captured the internet's heart, a man in a high-speed chase chose to pull over—not for the
+      law, but for a colony of street cats. His gentle pause reminded us that even in chaos, the simple act of
+      kindness toward an animal can stop time. Cats have that power: to make us forget the world and focus on
+      what's soft, present, and real.
+    </p>
+    <p>
+      Stories like these aren't just viral—they're a testament to the bond between humans and felines. Whether
+      we're exploring breeds, saving favorites, or simply losing ourselves in their gaze, we're part of a
+      global community that understands one thing: life is better with cats in it.
+    </p>
+  </div>
+</section>
+
+@if (showVideo()) {
+  <div class="video-overlay" (click)="closeVideo()" role="dialog" aria-modal="true" aria-label="Video">
+    <div class="video-modal" (click)="$event.stopPropagation()">
+      <button type="button" class="video-close" aria-label="Close video" (click)="closeVideo()">&times;</button>
+      <div class="video-wrap">
+        <iframe
+          [src]="sanitizedVideoUrl"
+          [title]="videoTitle"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+}

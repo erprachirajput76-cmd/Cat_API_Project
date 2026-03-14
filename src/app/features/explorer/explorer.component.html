@@ -1,0 +1,30 @@
+<app-page-header [title]="pageHeader.title" [subtitle]="pageHeader.subtitle" />
+<div class="filters">
+  <mat-form-field appearance="outline" class="breed-field">
+    <mat-label>Breed</mat-label>
+    <mat-select [(ngModel)]="selectedBreedId" (ngModelChange)="onBreedChange()">
+      <mat-option [value]="null">All breeds</mat-option>
+      @for (b of breeds(); track b.id) {
+        <mat-option [value]="b.id">{{ b.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
+@if (loading()) {
+  <app-loader [message]="loaderMessage" />
+} @else if (cats().length === 0) {
+  <p class="empty">No cats to show. Try changing the breed filter.</p>
+} @else {
+  <div class="grid">
+    @for (cat of cats(); track cat.id) {
+      <app-cat-card
+        [cat]="cat"
+        [altText]="getBreedLabel(cat) ?? 'Cat'"
+        [breedLabel]="selectedBreedName()"
+        (onLike)="onLike($event)"
+        (onDislike)="onDislike($event)"
+        (onViewDetails)="onViewDetails($event)"
+      />
+    }
+  </div>
+}

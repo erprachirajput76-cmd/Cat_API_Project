@@ -1,0 +1,18 @@
+<app-page-header [title]="pageHeader.title" [subtitle]="pageHeader.subtitle" />
+@if (loading()) {
+  <app-loader [message]="loaderMessage" />
+} @else {
+  <div class="breeds-grid">
+    @for (breed of breeds(); track breed.id) {
+      <a [routerLink]="[routes.BREEDS, breed.id]" class="breed-card">
+        <h3>{{ breed.name }}</h3>
+        @if (breed.origin) {
+          <p class="origin">{{ breed.origin }}</p>
+        }
+        @if (breed.temperament) {
+          <p class="temperament">{{ breed.temperament }}</p>
+        }
+      </a>
+    }
+  </div>
+}

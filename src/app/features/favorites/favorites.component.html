@@ -1,0 +1,16 @@
+<app-page-header [title]="pageHeader.title" [subtitle]="pageHeader.subtitle" />
+@if (favorites().length === 0) {
+  <p class="empty">No favorites yet. Explore cats and tap the heart to add them here.</p>
+} @else {
+  <div class="grid">
+    @for (cat of favorites(); track cat.id) {
+      <app-cat-card
+        [cat]="cat"
+        [altText]="cat.breeds?.[0]?.name ?? 'Cat'"
+        (onLike)="onLike($event)"
+        (onDislike)="onDislike($event)"
+        (onViewDetails)="onViewDetails($event)"
+      />
+    }
+  </div>
+}

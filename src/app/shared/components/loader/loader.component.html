@@ -1,0 +1,14 @@
+<div class="loader-wrap" role="status" aria-live="polite" [attr.aria-label]="message()">
+  <div class="loader-blob">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="loader-dots">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="dot" aria-hidden="true"></span>
+    <span class="dot" aria-hidden="true"></span>
+  </div>
+  <p class="loader-text">{{ message() }}</p>
+  <p class="loader-sub">{{ brandSubtext }}</p>
+</div>
